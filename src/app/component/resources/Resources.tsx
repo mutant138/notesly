@@ -1,34 +1,42 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from "react"
-import { FiSearch, FiDownload, FiFileText, FiLoader, FiChevronLeft, FiChevronRight } from 'react-icons/fi'
+import { useEffect, useState } from "react";
+import {
+  FiSearch,
+  FiDownload,
+  FiFileText,
+  FiLoader,
+  FiChevronLeft,
+  FiChevronRight,
+} from "react-icons/fi";
 
 interface PdfFile {
-  name: string
-  url: string
+  name: string;
+  url: string;
 }
 
 const Resources = () => {
-  const [search, setSearch] = useState<string>("")
-  const [pdfs, setPdfs] = useState<PdfFile[] | null>(null)
-  const [loading, setLoading] = useState<boolean>(true)
-  const [error, setError] = useState<string | null>(null)
-  const [currentPage, setCurrentPage] = useState<number>(1)
-  const itemsPerPage = 12 // 4 columns * 3 rows
+  const [search, setSearch] = useState<string>("");
+  const [pdfs, setPdfs] = useState<PdfFile[] | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const itemsPerPage = 12; // 4 columns * 3 rows
 
-  const GITHUB_API_URL = "https://api.github.com/repos/mutant138/open-pdfs/releases/tags/V1"
+  const GITHUB_API_URL =
+    "https://api.github.com/repos/mutant138/open-pdfs/releases/tags/V1";
 
   useEffect(() => {
     const fetchPdfs = async () => {
       try {
-        setLoading(true)
-        const response = await fetch(GITHUB_API_URL)
-        
+        setLoading(true);
+        const response = await fetch(GITHUB_API_URL);
+
         if (!response.ok) {
-          throw new Error(`Failed to fetch: ${response.status}`)
+          throw new Error(`Failed to fetch: ${response.status}`);
         }
-        
-        const data = await response.json()
+
+        const data = await response.json();
 
         if (data.assets) {
           const fetchedPdfs = data.assets
@@ -36,22 +44,22 @@ const Resources = () => {
             .map((asset: any) => ({
               name: asset.name.replace(/_/g, " ").replace(".pdf", ""),
               url: asset.browser_download_url,
-            }))
-        
-          setPdfs(fetchedPdfs)
+            }));
+
+          setPdfs(fetchedPdfs);
         } else {
-          setPdfs([])
+          setPdfs([]);
         }
       } catch (error) {
-        console.error("Error fetching PDFs:", error)
-        setError("Failed to load resources. Please try again later.")
+        console.error("Error fetching PDFs:", error);
+        setError("Failed to load resources. Please try again later.");
       } finally {
-        setLoading(false)
+        setLoading(false);
       }
-    }
+    };
 
-    fetchPdfs()
-  }, [])
+    fetchPdfs();
+  }, []);
 
   // Fallback to static data if API fails
   const staticPdfFiles: PdfFile[] = [
@@ -71,19 +79,19 @@ const Resources = () => {
     { name: "Rust Programming Language", url: "/pdfs/rust-lang.pdf" },
     { name: "iOS App Development", url: "/pdfs/ios-development.pdf" },
     { name: "Kubernetes in Action", url: "/pdfs/kubernetes-action.pdf" },
-  ]
+  ];
 
-  const displayPdfs = pdfs || staticPdfFiles
-  
+  const displayPdfs = pdfs || staticPdfFiles;
+
   const filteredPdfs = displayPdfs.filter((pdf) =>
     pdf.name.toLowerCase().includes(search.toLowerCase())
-  )
+  );
 
-  const pageCount = Math.ceil(filteredPdfs.length / itemsPerPage)
+  const pageCount = Math.ceil(filteredPdfs.length / itemsPerPage);
   const paginatedPdfs = filteredPdfs.slice(
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
-  )
+  );
 
   return (
     <div className="bg-gradient-to-r from-black via-gray-900 to-black min-h-screen flex flex-col relative">
@@ -94,14 +102,24 @@ const Resources = () => {
             Learning Resources
           </h1>
           <p className="text-gray-300 max-w-2xl mx-auto">
-            Download free PDF resources to enhance your development skills. All resources are carefully curated for developers at every level.
+            Download free PDF resources to enhance your development skills. All
+            resources are carefully curated for developers at every level.
           </p>
         </div>
 
         {/* Banner Ad */}
         <div className="mb-6 rounded-lg overflow-hidden">
           <div className="w-full h-20 bg-gray-800 border border-gray-700 text-white flex items-center justify-center">
-            <span className="text-gray-400">Premium Ad Space</span>
+            <span className="text-gray-400">
+              <ins
+                className="adsbygoogle"
+                style={{ display: "block" }}
+                data-ad-client="ca-pub-3644275241898653"
+                data-ad-slot="2480476060"
+                data-ad-format="auto"
+                data-full-width-responsive="true"
+              ></ins>
+            </span>
           </div>
         </div>
 
@@ -127,7 +145,9 @@ const Resources = () => {
           <div className="hidden lg:block w-40 shrink-0">
             <div className="sticky top-2">
               <div className="w-full h-[800px] bg-gray-800 border border-gray-700 rounded-lg text-white flex items-center justify-center">
-                <span className="text-gray-400 rotate-90 lg:rotate-0">Vertical Ad</span>
+                <span className="text-gray-400 rotate-90 lg:rotate-0">
+                  Vertical Ad
+                </span>
               </div>
             </div>
           </div>
@@ -146,8 +166,8 @@ const Resources = () => {
             {error && !loading && (
               <div className="text-center py-20">
                 <p className="text-red-400 mb-4">{error}</p>
-                <button 
-                  onClick={() => window.location.reload()} 
+                <button
+                  onClick={() => window.location.reload()}
                   className="bg-[#00df9a] hover:bg-[#00df9a]/80 text-black px-4 py-2 rounded-md font-medium"
                 >
                   Try Again
@@ -161,7 +181,10 @@ const Resources = () => {
                 {paginatedPdfs.length > 0 ? (
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                     {paginatedPdfs.map((pdf, index) => (
-                      <div key={index} className="bg-gray-800 border border-gray-700 hover:border-[#00df9a] rounded-lg overflow-hidden transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,223,154,0.3)]">
+                      <div
+                        key={index}
+                        className="bg-gray-800 border border-gray-700 hover:border-[#00df9a] rounded-lg overflow-hidden transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,223,154,0.3)]"
+                      >
                         <div className="p-4 pb-2">
                           <div className="flex justify-between items-start">
                             <h3 className="text-white text-sm font-semibold line-clamp-3">
@@ -175,7 +198,7 @@ const Resources = () => {
                         <div className="px-4 pt-2">
                           <div className="w-full h-32 bg-gray-900 rounded-md flex items-center justify-center mb-4">
                             <FiFileText className="h-16 w-16 text-gray-600" />
-                        </div>
+                          </div>
                         </div>
                         <div className="p-4">
                           <a
@@ -196,8 +219,13 @@ const Resources = () => {
                 ) : (
                   <div className="text-center py-20 bg-gray-800/50 rounded-lg border border-gray-700">
                     <FiFileText className="h-16 w-16 text-gray-600 mx-auto mb-4" />
-                    <h3 className="text-xl font-medium text-white mb-2">No resources found</h3>
-                    <p className="text-gray-400">Try adjusting your search or check back later for new resources</p>
+                    <h3 className="text-xl font-medium text-white mb-2">
+                      No resources found
+                    </h3>
+                    <p className="text-gray-400">
+                      Try adjusting your search or check back later for new
+                      resources
+                    </p>
                   </div>
                 )}
 
@@ -215,7 +243,9 @@ const Resources = () => {
           <div className="hidden lg:block w-40 shrink-0">
             <div className="sticky top-2">
               <div className="w-full h-[800px] bg-gray-800 border border-gray-700 rounded-lg text-white flex items-center justify-center">
-                <span className="text-gray-400 rotate-90 lg:rotate-0">Vertical Ad</span>
+                <span className="text-gray-400 rotate-90 lg:rotate-0">
+                  Vertical Ad
+                </span>
               </div>
             </div>
           </div>
@@ -227,7 +257,7 @@ const Resources = () => {
         <div className="bottom-0 left-0 w-full bg-black/80 py-4 border-t border-gray-800">
           <div className="container mx-auto flex justify-center items-center space-x-4">
             <button
-              onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+              onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
               disabled={currentPage === 1}
               className="p-2 rounded-md bg-gray-800 text-white disabled:opacity-50 hover:bg-gray-700 transition-colors"
             >
@@ -237,7 +267,9 @@ const Resources = () => {
               Page {currentPage} of {pageCount}
             </span>
             <button
-              onClick={() => setCurrentPage(prev => Math.min(prev + 1, pageCount))}
+              onClick={() =>
+                setCurrentPage((prev) => Math.min(prev + 1, pageCount))
+              }
               disabled={currentPage === pageCount}
               className="p-2 rounded-md bg-gray-800 text-white disabled:opacity-50 hover:bg-gray-700 transition-colors"
             >
@@ -247,7 +279,7 @@ const Resources = () => {
         </div>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default Resources
+export default Resources;
