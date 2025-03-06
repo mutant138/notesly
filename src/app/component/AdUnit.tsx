@@ -16,7 +16,7 @@ export default function AdUnit({
   className = "",
   style = {},
 }: AdUnitProps) {
-    const adRef = useRef<HTMLElement | null>(null);
+    const adRef = useRef<HTMLModElement>(null);
 
   useEffect(() => {
     if (typeof window !== "undefined" && window.adsbygoogle && adRef.current) {
