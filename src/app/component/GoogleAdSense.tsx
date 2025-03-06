@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Script from "next/script";
 
 declare global {
@@ -9,11 +9,17 @@ declare global {
 }
 
 export default function GoogleAdSense() {
+  const [isLoaded, setIsLoaded] = useState(false);
+
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      (window.adsbygoogle = window.adsbygoogle || []).push({});
+    if (typeof window !== "undefined" && isLoaded) {
+      try {
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+      } catch (e) {
+        console.error("AdSense error:", e);
+      }
     }
-  }, []);
+  }, [isLoaded]);
 
   return (
     <Script
@@ -21,9 +27,8 @@ export default function GoogleAdSense() {
       strategy="afterInteractive"
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3644275241898653"
       crossOrigin="anonymous"
-      onError={(e) => {
-        console.error("AdSense script failed to load", e);
-      }}
+      onLoad={() => setIsLoaded(true)} // Ensures script is fully loaded
+      onError={(e) => console.error("AdSense script failed to load", e)}
     />
   );
 }
