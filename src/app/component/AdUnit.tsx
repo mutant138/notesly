@@ -39,7 +39,7 @@ export default function AdUnit({
         data-ad-client="ca-pub-3644275241898653"
         data-ad-slot={slot}
         data-ad-format={format}
-        data-full-width-responsive={responsive ? "true" : "false"}
+        data-full-width-responsive={"true"}
       />
     </div>
   );
