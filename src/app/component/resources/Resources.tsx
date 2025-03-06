@@ -117,7 +117,7 @@ const Resources = () => {
         <div className="mb-6 rounded-lg overflow-hidden">
           <AdUnit
             slot="2480476060"
-            className="w-full h-20 bg-gray-800 border border-gray-700"
+            className="h-20 bg-gray-800 border border-gray-700"
           />
         </div>
 

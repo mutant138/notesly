@@ -31,7 +31,7 @@ export default function AdUnit({
   }, []);
 
   return (
-    <div className={className} style={{ minHeight: "100px", ...style }}>
+    <div className={className} style={{ minHeight: "100px",display:"block",width:"100%", ...style }}>
       <ins
         ref={adRef}
         className="adsbygoogle"
