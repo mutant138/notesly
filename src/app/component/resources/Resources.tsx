@@ -9,6 +9,7 @@ import {
   FiChevronLeft,
   FiChevronRight,
 } from "react-icons/fi";
+import AdUnit from "../AdUnit";
 
 interface PdfFile {
   name: string;
@@ -20,6 +21,7 @@ const Resources = () => {
   const [pdfs, setPdfs] = useState<PdfFile[] | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  const [adsLoaded, setAdsLoaded] = useState<boolean>(false);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const itemsPerPage = 12; // 4 columns * 3 rows
 
@@ -59,6 +61,10 @@ const Resources = () => {
     };
 
     fetchPdfs();
+    const timer = setTimeout(() =>{
+      setAdsLoaded(true);
+    },1000);
+    return () => clearTimeout(timer);
   }, []);
 
   // Fallback to static data if API fails
@@ -109,18 +115,10 @@ const Resources = () => {
 
         {/* Banner Ad */}
         <div className="mb-6 rounded-lg overflow-hidden">
-          <div className="w-full h-20 bg-gray-800 border border-gray-700 text-white flex items-center justify-center">
-            <span className="text-gray-400">
-              <ins
-                className="adsbygoogle"
-                style={{ display: "block" }}
-                data-ad-client="ca-pub-3644275241898653"
-                data-ad-slot="2480476060"
-                data-ad-format="auto"
-                data-full-width-responsive="true"
-              ></ins>
-            </span>
-          </div>
+          <AdUnit
+            slot="2480476060"
+            className="w-full h-20 bg-gray-800 border border-gray-700"
+          />
         </div>
 
         {/* Fixed Search Bar */}
@@ -231,8 +229,11 @@ const Resources = () => {
 
                 {/* Bottom Ad */}
                 {!loading && !error && paginatedPdfs.length > 0 && (
-                  <div className="mt-8 w-full h-24 bg-gray-800 border border-gray-700 rounded-lg text-white flex items-center justify-center">
-                    <span className="text-gray-400">Premium Ad Space</span>
+                  <div className="mt-8">
+                    <AdUnit
+                      slot="2480476060"
+                      className="w-full h-24 bg-gray-800 border border-gray-700 rounded-lg"
+                    />
                   </div>
                 )}
               </>
@@ -242,11 +243,13 @@ const Resources = () => {
           {/* Right Sidebar */}
           <div className="hidden lg:block w-40 shrink-0">
             <div className="sticky top-2">
-              <div className="w-full h-[800px] bg-gray-800 border border-gray-700 rounded-lg text-white flex items-center justify-center">
-                <span className="text-gray-400 rotate-90 lg:rotate-0">
-                  Vertical Ad
-                </span>
-              </div>
+              {adsLoaded && (
+                <AdUnit
+                  slot="2480476060"
+                  format="vertical"
+                  className="w-full h-[600px] bg-gray-800 border border-gray-700 rounded-lg"
+                />
+              )}
             </div>
           </div>
         </div>
