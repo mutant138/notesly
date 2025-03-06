@@ -143,9 +143,11 @@ const Resources = () => {
           <div className="hidden lg:block w-40 shrink-0">
             <div className="sticky top-2">
               <div className="w-full h-[800px] bg-gray-800 border border-gray-700 rounded-lg text-white flex items-center justify-center">
-                <span className="text-gray-400 rotate-90 lg:rotate-0">
-                  Vertical Ad
-                </span>
+              <AdUnit
+              slot="2480476060"
+              format="vertical"
+              className="w-full h-[600px] bg-gray-800 border border-gray-700 rounded-lg"
+              />
               </div>
             </div>
           </div>
