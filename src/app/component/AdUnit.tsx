@@ -24,7 +24,7 @@ export default function AdUnit({
         try {
           window.adsbygoogle.push({});
         } catch (error) {
-          console.error("AdSense error:", error);
+          console.error("AdSense error in Adunit components:", error);
         }
       }
     }

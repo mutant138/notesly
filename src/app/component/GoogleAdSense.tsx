@@ -16,7 +16,7 @@ export default function GoogleAdSense() {
       try {
         (window.adsbygoogle = window.adsbygoogle || []).push({});
       } catch (e) {
-        console.error("AdSense error:", e);
+        console.error("AdSense error in GoogleAdSense component:", e);
       }
     }
   }, [isLoaded]);
