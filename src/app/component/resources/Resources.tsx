@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { FiSearch, FiDownload, FiFileText, FiLoader, FiChevronLeft, FiChevronRight } from "react-icons/fi"
-import AdUnit from "../component/AdUnit"
+import AdUnit from "../AdUnit"
 
 interface PdfFile {
   name: string
