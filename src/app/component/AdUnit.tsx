@@ -4,7 +4,7 @@ import type React from "react"
 
 interface AdUnitProps {
   slot: string
-  format?: "auto" | "fluid" | "rectangle" | "vertical"
+  format?: "auto" | "autorelaxed" 
   responsive?: boolean
   className?: string
   style?: React.CSSProperties

@@ -95,7 +95,7 @@ const Resources = () => {
 
         {/* Banner Ad - Each ad unit needs a unique slot */}
         <div className="mb-6 rounded-lg overflow-hidden">
-          <AdUnit slot="2480476060" className="h-20 bg-gray-800 border border-gray-700" />
+          <AdUnit slot="1404403399" className="h-20 bg-gray-800 border border-gray-700" />
         </div>
 
         {/* Fixed Search Bar */}
@@ -123,7 +123,7 @@ const Resources = () => {
                 {/* Use a different slot for each ad unit */}
                 <AdUnit
                   slot="3957209263"
-                  format="vertical"
+                  format="autorelaxed"
                   className="w-full h-[600px] bg-gray-800 border border-gray-700 rounded-lg"
                 />
               </div>
@@ -198,7 +198,7 @@ const Resources = () => {
                 {/* Bottom Ad - Use a different slot */}
                 {!loading && !error && paginatedPdfs.length > 0 && (
                   <div className="mt-8">
-                    <AdUnit slot="1433942466" className="w-full h-24 bg-gray-800 border border-gray-700 rounded-lg" />
+                    <AdUnit slot="2480476060" className="w-full h-24 bg-gray-800 border border-gray-700 rounded-lg" />
                   </div>
                 )}
               </>
@@ -210,8 +210,8 @@ const Resources = () => {
             <div className="sticky top-2">
               {/* Use a different slot for this ad unit */}
               <AdUnit
-                slot="5433675669"
-                format="vertical"
+                slot="9582174686"
+                format="autorelaxed"
                 className="w-full h-[600px] bg-gray-800 border border-gray-700 rounded-lg"
               />
             </div>
