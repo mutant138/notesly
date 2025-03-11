@@ -51,7 +51,8 @@ export default function AdUnit({ slot, format = "auto", responsive = true, class
         className="adsbygoogle"
         style={{
           display: "block",
-          width: "100%",
+          width: "100%", 
+          minWidth: "320px", 
           height: "100%",
           minHeight: "100px",
         }}

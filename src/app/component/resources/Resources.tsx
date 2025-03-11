@@ -119,13 +119,12 @@ const Resources = () => {
           {/* Left Sidebar */}
           <div className="hidden lg:block w-40 shrink-0">
             <div className="sticky top-2">
-              <div className="w-full h-[800px] bg-gray-800 border border-gray-700 rounded-lg text-white flex items-center justify-center">
+              <div className="w-full min-w-[320px] h-[600px] bg-gray-800 border border-gray-700 rounded-lg text-white flex items-center justify-center">
                 {/* Use a different slot for each ad unit */}
                 <AdUnit
                   slot="3957209263"
                   format="autorelaxed"
-                  className="w-full h-[600px] bg-gray-800 border border-gray-700 rounded-lg"
-                />
+                 />
               </div>
             </div>
           </div>
