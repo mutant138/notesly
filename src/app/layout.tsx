@@ -53,9 +53,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           crossOrigin="anonymous"
         ></script> */}
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+        <GoogleAdSense/>
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <GoogleAdSense/>
+        
         {children}
       </body>
     </html>
