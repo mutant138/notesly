@@ -1,5 +1,11 @@
 "use client";
 import { useEffect, useRef } from "react";
+
+declare global {
+  interface Window {
+    adsbygoogle: any[];
+  }
+}
 import type React from "react";
 
 interface AdUnitProps {
