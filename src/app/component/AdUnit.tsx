@@ -19,10 +19,8 @@ export default function AdUnit({ slot, format = "auto", responsive = true, class
     if (typeof window !== "undefined" && window.adsbygoogle && adRef.current && !initialized.current) {
       try {
         // Mark as initialized to prevent multiple initializations
-        initialized.current = true
-
-        // Push the ad with a unique key based on slot
-        ;(window.adsbygoogle = window.adsbygoogle || []).push({})
+        initialized.current = true;
+        (window.adsbygoogle = window.adsbygoogle || []).push({})
       } catch (error) {
         console.error("AdSense error in AdUnit component:", error)
       }

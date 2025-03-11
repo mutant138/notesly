@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Head from "next/head";
 import "./globals.css";
+import GoogleAdSense from "./component/GoogleAdSense";
 //import GoogleAdSense from "./component/GoogleAdSense";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
@@ -46,15 +47,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <head>
         <meta name="google-adsense-account" content="ca-pub-3644275241898653" />
-        <script
+        {/* <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3644275241898653"
           crossOrigin="anonymous"
-        ></script>
+        ></script> */}
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        {/* <GoogleAdSense /> */}
+        <GoogleAdSense/>
         {children}
       </body>
     </html>
