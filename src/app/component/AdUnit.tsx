@@ -1,36 +1,49 @@
-"use client"
-import { useEffect, useRef } from "react"
-import type React from "react"
+"use client";
+import { useEffect, useRef } from "react";
+import type React from "react";
 
 interface AdUnitProps {
-  slot: string
-  format?: "auto" | "autorelaxed" 
-  responsive?: boolean
-  className?: string
-  style?: React.CSSProperties
+  slot: string;
+  format?: "auto" | "autorelaxed";
+  responsive?: boolean;
+  className?: string;
+  style?: React.CSSProperties;
 }
 
-export default function AdUnit({ slot, format = "auto", responsive = true, className = "", style = {} }: AdUnitProps) {
-  const adRef = useRef<HTMLModElement>(null)
-  const initialized = useRef(false)
-
+export default function AdUnit({
+  slot,
+  format = "auto",
+  responsive = true,
+  className = "",
+  style = {},
+}: AdUnitProps) {
+  const adRef = useRef<HTMLModElement>(null);
+  const initialized = useRef(false);
   useEffect(() => {
-    
-    if (typeof window !== "undefined" && window.adsbygoogle && adRef.current && !initialized.current) {
-      try {
-        // Mark as initialized to prevent multiple initializations
-        initialized.current = true;
-        (window.adsbygoogle = window.adsbygoogle || []).push({})
-      } catch (error) {
-        console.error("AdSense error in AdUnit component:", error)
+    if (typeof window !== "undefined") {
+      const loadAds = () => {
+        if (window.adsbygoogle && adRef.current && !initialized.current) {
+          console.log("✅ Pushing AdSense ad...");
+          initialized.current = true;
+          window.adsbygoogle.push({});
+        }
+      };
+
+      if (window.adsbygoogle) {
+        console.log("✅ AdSense detected, pushing ads.");
+        loadAds();
+      } else {
+        console.warn("🚨 AdSense script not yet loaded. Waiting...");
+        const interval = setInterval(() => {
+          if (window.adsbygoogle) {
+            console.log("✅ AdSense script loaded. Pushing ads...");
+            loadAds();
+            clearInterval(interval);
+          }
+        }, 500);
       }
     }
-
-    return () => {
-      // Clean up on unmount if needed
-      initialized.current = false
-    }
-  }, [slot])
+  }, [slot]);
 
   return (
     <div
@@ -49,8 +62,8 @@ export default function AdUnit({ slot, format = "auto", responsive = true, class
         className="adsbygoogle"
         style={{
           display: "block",
-          width: "100%", 
-          minWidth: "320px", 
+          width: "100%",
+          minWidth: "320px",
           height: "100%",
           minHeight: "100px",
         }}
@@ -60,6 +73,5 @@ export default function AdUnit({ slot, format = "auto", responsive = true, class
         data-full-width-responsive={responsive ? "true" : "false"}
       />
     </div>
-  )
+  );
 }
-
