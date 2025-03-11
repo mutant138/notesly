@@ -116,18 +116,7 @@ const Resources = () => {
 
         {/* Main Content */}
         <div className="flex flex-col lg:flex-row gap-6 flex-grow overflow-hidden">
-          {/* Left Sidebar */}
-          <div className="hidden lg:block w-40 shrink-0">
-            <div className="sticky top-2">
-              <div className="w-full h-[600px] bg-gray-800 border border-gray-700 rounded-lg text-white flex items-center justify-center">
-                {/* Use a different slot for each ad unit */}
-                <AdUnit
-                  slot="9582174686"
-                  format="autorelaxed"
-                 />
-              </div>
-            </div>
-          </div>
+        
 
           {/* Content Section */}
           <div className="flex-grow overflow-y-auto">
@@ -204,17 +193,7 @@ const Resources = () => {
             )}
           </div>
 
-          {/* Right Sidebar */}
-          <div className="hidden lg:block w-40 shrink-0">
-            <div className="sticky top-2">
-              {/* Use a different slot for this ad unit */}
-              <AdUnit
-                slot="9582174686"
-                format="autorelaxed"
-                className="w-full h-[600px] bg-gray-800 border border-gray-700 rounded-lg"
-              />
-            </div>
-          </div>
+          
         </div>
       </div>
 
