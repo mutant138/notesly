@@ -8,9 +8,9 @@ const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Notesly – The Best Note-Taking App",
-  description: "Take and organize your notes effortlessly with Notesly, a powerful and minimalist note-taking app.",
-  keywords: "note-taking, online notes, productivity, Notesly app, best note app",
+  title: "Notesly – The open source pdf notes",
+  description: "Find and download your required topic handwritten pdf freely.",
+  keywords: "note-taking, online notes, productivity, Notesly app, best notes, freepdfs, pdf, studymaterialsfree, ",
   authors: [{ name: "Udhaya Surya", url: "https://space-themed-portolio.vercel.app/" }],
   creator: "Udhaya Surya",
   applicationName: "Notesly",
