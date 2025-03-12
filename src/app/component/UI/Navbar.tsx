@@ -21,7 +21,7 @@ const Navbar: React.FC = () => {
   const navItems: NavItem[] = [
     { id: 1, text: "Home", path: "/" },
     { id: 3, text: "Resources", path: "/resources" },
-    { id: 5, text: "Donate", path: "/donate" },
+    { id: 5, text: "Online Classes", path: "/class" },
     { id: 6, text: "Blogs", path: "/blogs" },
   ];
 
@@ -39,7 +39,7 @@ const Navbar: React.FC = () => {
                 e.preventDefault(); // Prevents navigation
               }
              }}
-              className= {`p-2 hover:bg-[#00df9a] rounded-lg ${item.path === "/blogs" || item.path==="/donate" ?"cursor-not-allowed" : "cursor-pointer"} transition duration-300 hover:text-black`}
+              className= {`p-2 hover:bg-[#00df9a] rounded-lg ${item.path === "/blogs" || item.path==="/class" ?"cursor-not-allowed" : "cursor-pointer"} transition duration-300 hover:text-black`}
             >
               {item.text}
             </Link>
@@ -90,7 +90,7 @@ const Navbar: React.FC = () => {
 
           <li className="p-4">
             <a
-              href="https://github.com/your-repo-link"
+              href="https://github.com/mutant138/open-pdfs"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-4 py-2 bg-[#00df9a] text-black font-semibold rounded-lg transition duration-300 hover:bg-[#00bf7a]"
