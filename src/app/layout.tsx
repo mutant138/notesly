@@ -16,11 +16,11 @@ export const metadata: Metadata = {
   applicationName: "Notesly",
   robots: "index, follow",
   openGraph: {
-    title: "Notesly – The Best Note-Taking App",
-    description: "Take and organize your notes effortlessly with Notesly.",
-    url: "https://notesly--ten.vercel.app/",
+    title: "Notesly – The open source pdf notes",
+    description: "Find and download your required topic handwritten pdf freely.",
+    url: "https://notesly.vercel.app/",
     siteName: "Notesly",
-    images: [{ url: "https://notesly--ten.vercel.app/your-og-image.jpg", width: 1200, height: 630, alt: "Notesly – The Best Note-Taking App" }],
+    images: [{ url: "https://notesly.vercel.app/your-og-image.jpg", width: 1200, height: 630, alt: "Notesly – The Best Note-Taking App" }],
     type: "website",
   },
   twitter: {
