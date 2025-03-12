@@ -25,8 +25,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Notesly – The Best Note-Taking App",
-    description: "Take and organize your notes effortlessly with Notesly.",
+    title: "Notesly – The open source pdf notes",
+    description: "Find and download your required topic handwritten pdf freely.",
     creator: "@Udhaya138",
     images: ["https://notesly--ten.vercel.app/your-twitter-image.jpg"],
   },
