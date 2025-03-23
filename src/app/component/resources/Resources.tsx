@@ -157,27 +157,30 @@ const Resources = () => {
             
             {/* Category Filter Dropdown */}
             {showCategoryFilter && (
-              <div className="mt-4 p-4 bg-gray-800 border border-gray-700 rounded-lg shadow-xl animate-fadeIn">
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2">
-                  {categories.map((category) => (
-                    <button
-                      key={category}
-                      onClick={() => {
-                        setSelectedCategory(category === selectedCategory ? null : category);
-                        setShowCategoryFilter(false);
-                      }}
-                      className={`px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
-                        category === selectedCategory
-                          ? 'bg-[#00df9a] text-black'
-                          : 'bg-gray-700 text-white hover:bg-gray-600'
-                      }`}
-                    >
-                      {category}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            )}
+  <div className="mt-4 relative animate-fadeIn">
+    <select
+      value={selectedCategory || ""}
+      onChange={(e) => {
+        const value = e.target.value;
+        setSelectedCategory(value === "" ? null : value);
+        setShowCategoryFilter(false);
+      }}
+      className="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg shadow-xl text-white appearance-none cursor-pointer"
+    >
+      <option value="">Select Category</option>
+      {categories.map((category) => (
+        <option key={category} value={category}>
+          {category}
+        </option>
+      ))}
+    </select>
+    <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+      <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+      </svg>
+    </div>
+  </div>
+)}
           </div>
         </div>
 

@@ -21,7 +21,7 @@ const Navbar: React.FC = () => {
   const navItems: NavItem[] = [
     { id: 1, text: "Home", path: "/" },
     { id: 3, text: "Resources", path: "/resources" },
-    { id: 5, text: "Online Classes", path: "/class" },
+    { id: 5, text: "AI Mock Interview", path: "/mock" },
     { id: 6, text: "Blogs", path: "/blogs" },
   ];
 
@@ -93,7 +93,7 @@ const Navbar: React.FC = () => {
               href="https://github.com/mutant138/open-pdfs"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 bg-[#00df9a] text-black font-semibold rounded-lg transition duration-300 hover:bg-[#00bf7a]"
+              className="flex items-center gap-2 px-4 py-2 bg-[#00df9a] text-black font-semibold rounded-lg transition duration-300 hover:bg-[#00bf7a] pointer-events-none"
             >
               <AiFillGithub size={20} /> Contribute
             </a>
