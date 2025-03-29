@@ -58,7 +58,6 @@ const Resources = () => {
             );
 
           setCategories(fetchedCategories);
-
           // Map PDFs with their categories and mock additional data
           const fetchedPdfs = data.assets
             .filter((asset: any) => asset.name.endsWith(".pdf"))
@@ -75,7 +74,6 @@ const Resources = () => {
                 ).toLocaleDateString(), // Mock date
               };
             });
-
           setPdfs(fetchedPdfs);
         } else {
           setPdfs([]);
@@ -203,7 +201,7 @@ const Resources = () => {
 
             {/* Category Filter Dropdown */}
             {showCategoryFilter && (
-              <div className="mt-4 relative animate-fadeIn">
+              <div className="mt-4 relative animate-fadeIn w-1/4">
                 <select
                   value={selectedCategory || ""}
                   onChange={(e) => {

@@ -30,20 +30,20 @@ const Benefits: React.FC = () => {
     {
       id: 1,
       quote: "Notesly has been a game-changer for my studies. The free PDFs and notes are incredibly helpful!",
-      author: "John Doe",
-      role: "Student",
+      author: "Harris Kumar",
+      role: "AI Aspirant",
     },
     {
       id: 2,
       quote: "I love how easy it is to find high-quality resources on Notesly. Highly recommended!",
-      author: "Jane Smith",
-      role: "Educator",
+      author: "Suberna",
+      role: "Data science student",
     },
     {
       id: 3,
       quote: "The community-driven approach makes Notesly stand out. It's a must-have resource for learners.",
-      author: "Alex Johnson",
-      role: "Developer",
+      author: "Kayathri",
+      role: "Full stack Developer",
     },
   ];
 
