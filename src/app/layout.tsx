@@ -7,7 +7,8 @@ import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
-
+import Navbar from "./component/UI/Navbar";
+import Footer from "./component/Footer/Footer";
 export const metadata: Metadata = {
   title: "Notesly – The open source pdf notes",
   description: "Find and download your required topic handwritten pdf freely.",
@@ -55,8 +56,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+     
         <GoogleAdSense/>
+        <Navbar />
         {children}
+        <Footer />
         <SpeedInsights />
         <Analytics />
       </body>
