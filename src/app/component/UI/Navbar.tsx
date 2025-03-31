@@ -23,7 +23,7 @@ const Navbar: React.FC = () => {
   const navItems: NavItem[] = [
     { id: 1, text: "Home", path: "/", title: "Homepage" },
     { id: 3, text: "Resources", path: "/resources", title: "Highly curated open source pdf resources" },
-    { id: 5, text: "Mock Interview", path: "/mock", title: "AI powered mock Interview"},
+    { id: 5, text: "AI Mock", path: "/mock", title: "AI powered mock Interview"},
     { id: 6, text: "Blogs", path: "/blogs", title:"Coming soon" },
   ];
 

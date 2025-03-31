@@ -4,7 +4,7 @@ import "./globals.css";
 import GoogleAdSense from "./component/GoogleAdSense";
 //import GoogleAdSense from "./component/GoogleAdSense";
 import { Analytics } from "@vercel/analytics/react"
-
+import { SpeedInsights } from "@vercel/speed-insights/next"
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
@@ -57,6 +57,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <GoogleAdSense/>
         {children}
+        <SpeedInsights />
         <Analytics />
       </body>
     </html>
